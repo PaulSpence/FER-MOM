@@ -1,0 +1,41 @@
+\can mode verify
+can data_set /all
+can var /all
+can reg
+
+
+
+use "($1)"
+
+! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+set mem /size=500
+
+
+!let ISO20= TEMP[d=1,z=@loc:20]
+!let ISO18= TEMP[d=1,z=@loc:18]
+!let ISO16= TEMP[d=1,z=@loc:16]
+!let ISO14= TEMP[d=1,z=@loc:14]
+!let ISO12= TEMP[d=1,z=@loc:12]
+!let ISO10= TEMP[d=1,z=@loc:10]
+!let ISO8= TEMP[d=1,z=@loc:8]
+!let ISO6= TEMP[d=1,z=@loc:6]
+!let ISO4= TEMP[d=1,z=@loc:4]
+let ISO2= TEMP[d=1,z=@loc:2]
+let ISO1= TEMP[d=1,z=@loc:1]
+let ISOpt5= TEMP[d=1,z=@loc:0.5]
+let ISO0= TEMP[d=1,z=@loc:0]
+let ISOminpt5= TEMP[d=1,z=@loc:-0.5]
+let ISOmin1= TEMP[d=1,z=@loc:-1]
+let ISOmin2= TEMP[d=1,z=@loc:-2]
+
+save /file="($2)" ISO2,ISO1,ISOpt5,ISO0,ISOminpt5,ISOmin1,ISOmin2
+!save /file="($2)" ISO20
+
+! or if it is too large to be saved at once:
+! repeat /l=1:12 (save /append /file="($2)" ISO20)
+
+
+
+
+! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

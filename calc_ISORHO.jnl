@@ -1,0 +1,34 @@
+\can mode verify
+can data_set /all
+can var /all
+can reg
+
+
+
+use "($1)"
+
+! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+SET MEMORY/SIZE=500
+
+
+!let ISO2755= POT_RHO_0[d=1,z=@loc:1027.55]
+!let ISO2758= POT_RHO_0[d=1,z=@loc:1027.58]
+!let ISO276= POT_RHO_0[d=1,z=@loc:1027.6]
+let ISO2765= POT_RHO_0[d=1,z=@loc:1027.65]
+let ISO2768= POT_RHO_0[d=1,z=@loc:1027.68]
+let ISO277= POT_RHO_0[d=1,z=@loc:1027.7]
+let ISO2772= POT_RHO_0[d=1,z=@loc:1027.72]
+!let ISO2775= POT_RHO_0[d=1,z=@loc:1027.75]
+!let ISO278= POT_RHO_0[d=1,z=@loc:1027.8]
+
+save /file="($2)" ISO2765,ISO2768,ISO277,ISO2772
+!save /file="($2)" ISO2765,ISO2768
+
+! or if it is too large to be saved at once:
+! repeat /l=1:12 (save /append /file="($2)" ISO20)
+
+
+
+
+! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
